@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>COUNT DOWN</title>
+<style type="text/css">
+.countdown span{padding-left:31px;position:relative;}
+.countdown span b{position:absolute;left:-2px;top:-1px;width:31px;height:20px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAUCAMAAABCtxbIAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGxQTFRFQ2y0THrMSnfGSnfHRnG79/j5Tn3RR3O/Q2yzRG63THvOm7bkSXbERXC6ma/UVYPUVnq6WIHJnLHWVny8UXe4m7HZQ2uylq7XSnO39/j6l67VWoPJXorWRW+5m7DVSnjHQ220RnG8TXzOTn7SYjlw1QAAAGNJREFUeNrs0bcBgCAABdFPEhPmnEj77+gCoIWtr73yIK4mBUxQ3wlUk8kUt2F8xGBOWVKmQxhtkWaSkdyF5QRQJUl8TAJw6nwcjGUvXf/9Q18ee43NPv0pIOY9+vco1luAAQDdJU4OoOlGXAAAAABJRU5ErkJggg==) no-repeat 0 0;overflow:hidden;}
+.countdown span b em{position:absolute;height:14px;width:31px;left:4px;top:3px;overflow:hidden;}
+.countdown span b i{float:left;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAACMCAMAAAB/G7gNAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRFx9fxb5baka/j6e/5vM7uWYbVnLfmscbrhqbg9Pf8ZI7Y3uf309/0ep7dpr7o////Tn7S3SbdtgAAAVBJREFUeNq8lNmWgyAMQAOILJrA/3/tYCIFO1W0c87w1FsxXrIAuVuQ57StlcFMtC2XfAH5L1OiXwAMmgH3SFEVCMS/EehOAAHlxECzjmUDFLeD6DvoucGcqAGdwmFbjtiAjccBDqCWPppVZ6IvsK7L9UySa+PbNknIESxui81BBw4QXDGHBYg8In+2pjcPwE8SANlNiQLZS+vQpMsR+AVtqG1DfvYGLL2D4QAJdH1STr3CIEAPJAbeMrQGubLeS8NdUvttTqO2VC3XJNphwloFT9NK18X6ANwlL7etS676Wo7KXVanEUcFFusox96T7fKX1nHppnGme9P4V2vXWy9SYrG+KFYPenp+h8gnA2wDBMivQMK2bT2Fw7bMZ9hBL7cCHMCHPlqMg1x/uq+Nf97XwPf1P+X6K+s1Fmkl4KQtzVqnUdPDaaTOGs/6+keAAQCIcF5P0fB9AAAAAABJRU5ErkJggg==) repeat-y 0 0;width:12px;height:160px;position:relative;}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+</head>
+
+<body>
+<div id="countdownDay" class="countdown">2010.05.01 00:00:00 
+  <span><b><em><i></i><i></i></em></b></span> D 
+  <span><b><em><i></i><i></i></em></b></span> H 
+  <span><b><em><i></i><i></i></em></b></span> M 
+  <span><b><em><i></i><i></i></em></b></span> S</div>
+
+<script type="text/javascript">$(function(){
+  var els = $('#countdownDay em i'),
+      h = 14,
+      tmr;
+  
+  function cc(){
+    var d = '',
+        t = Math.round((1272643200000 + 250 - new Date())/1000);
+    
+    if (t<=0) clearInterval(tmr);
+    
+    //d, h, m, s
+    p(t % 60);//s
+    
+    t = t / 60;
+    p(t % 60);//m
+    
+    t = t / 60;
+    p(t % 60);//h
+    
+    p(t / 24);//d
+    
+    els.each(function(idx, el){
+      $(el).animate({top: -h * parseInt(d.charAt(idx), 10)});
+    });
+    
+    function p(x){
+      x = Math.floor(x);
+      d = ((x < 10 ? '0' : '') + x) + d;
+    }
+  }
+  
+  tmr = setInterval(cc, 1000);
+  cc();
+});</script>
+
+</body>
+</html>
