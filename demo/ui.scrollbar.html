@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>UI SCROLLBAR</title>
+<style type="text/css">
+.autoscroller{position:relative;overflow:hidden;}
+.autoscroller .scrollcon{position:relative;}
+.autoscroller .scrollbar{overflow:hidden;position:absolute;right:0;top:0;width:9px;background:#fff;font-size:1px;line-height:1px;}
+.autoscroller .scrollbar s{position:absolute;left:3px;top:0;height:100%;width:2px;border-left:1px solid #c3c3c3;background:#000;}
+.autoscroller .scrollbar i{background:none repeat-y 0 0;width:9px;position:absolute;cursor:n-resize;left:0;top:0;}
+.autoscroller .scrollbar i b{background:none no-repeat -9px 0;display:block;padding:4px 0 0;}
+.autoscroller .scrollbar i,
+.autoscroller .scrollbar i b{background-image:url(data:image/gif;base64,R0lGODlhJAAOAPcAAAAAAIAAAACAAICAAAAAgIAAgACAgICAgMDAwP8AAAD/AP//AAAA//8A/wD//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAZgAAmQAAzAAA/wAzAAAzMwAzZgAzmQAzzAAz/wBmAABmMwBmZgBmmQBmzABm/wCZAACZMwCZZgCZmQCZzACZ/wDMAADMMwDMZgDMmQDMzADM/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMzADMzMzMzZjMzmTMzzDMz/zNmADNmMzNmZjNmmTNmzDNm/zOZADOZMzOZZjOZmTOZzDOZ/zPMADPMMzPMZjPMmTPMzDPM/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YzAGYzM2YzZmYzmWYzzGYz/2ZmAGZmM2ZmZmZmmWZmzGZm/2aZAGaZM2aZZmaZmWaZzGaZ/2bMAGbMM2bMZmbMmWbMzGbM/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5kzAJkzM5kzZpkzmZkzzJkz/5lmAJlmM5lmZplmmZlmzJlm/5mZAJmZM5mZZpmZmZmZzJmZ/5nMAJnMM5nMZpnMmZnMzJnM/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wzAMwzM8wzZswzmcwzzMwz/8xmAMxmM8xmZsxmmcxmzMxm/8yZAMyZM8yZZsyZmcyZzMyZ/8zMAMzMM8zMZszMmczMzMzM/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8AM/8AZv8Amf8AzP8A//8zAP8zM/8zZv8zmf8zzP8z//9mAP9mM/9mZv9mmf9mzP9m//+ZAP+ZM/+ZZv+Zmf+ZzP+Z///MAP/MM//MZv/Mmf/MzP/M////AP//M///Zv//mf//zP///yH5BAEAABAALAAAAAAkAA4AAAi0AKn5STWwYKp/CKmlSkUtoUGDC0cRnDiQoJ+CF/9RU7iQ4T+LFgsK9DPlzpSLfgRStPhxocGNDycuPHnyoZ9RKEWlxIjSJcqfI39eVBnT5cqdRyvGVHoxZNCQGEMSJEoRqU2jD6lCPFr1J06ofnTyDItS4BQUZ2tqlcnV6kqsb3uWlUtXqtWmQ5cqPbq2YluLOC/qFBgYqNCmfd1uXfoRb8aZJPH65Pn0J8JUaf04JDmlpp+AADs=);}
+.autoscroller .scrollbar i b b{background-position:-18px 100%;padding:0 0 4px;}
+.autoscroller .scrollbar i b b b{background-position:100% 50%;}
+</style>
+</head>
+<body>
+<div style="width:100px;height:100px;" class="autoscroller">
+    <div>
+        afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfasdfaf<br> afasdfsfa
+    </div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="../lib/jquery.event.drag-1.5.min.js"></script>
+<script type="text/javascript" src="../lib/jquery.event.wheel.js"></script>
+<script type="text/javascript">
+function fix_scrollers(){
+var j = jQuery;
+/*
+.autoscroller
+  .scrollcon
+  .scrollbar
+    s
+    i
+    b
+    b
+    b
+*/
+
+j('.autoscroller').each(function(idx, sc){
+    var h = [sc.offsetHeight, sc.scrollHeight];
+    if(h[0] - h[1] >= 0) return;
+
+    var con = j('<div class="scrollcon"/>').append(sc.childNodes).appendTo(sc);
+
+    var bar = j('<div class="scrollbar"><s></s><i><b><b><b></b></b></b></i></div>').appendTo(sc),
+        btn = bar.find('>i');
+
+    bar.css('height', h[0] + 'px');
+    bar.find('>s').css('height', h[0] + 'px');
+
+    j(j.dir(btn[0], 'firstChild').pop()).css('height', Math.max(0, (h[0] * h[0] / h[1]) - 8) + 'px');
+
+    var btnYA = [0, bar[0].offsetHeight - btn[0].offsetHeight];
+    var sRate = Math.min(1, btnYA[1] / (h[1] - h[0])),
+        wheelPH = -25 * sRate;
+
+    var drag_posY = null,
+    drag_top = null,
+    tmr,
+    ctop = 0;
+
+    btn.bind('dragstart',function(ev){
+            drag_posY = ev.offsetY;
+            drag_top = parseInt(btn.css('top')) || 0;
+            tmr = setInterval(function(){
+                    con.stop(true).animate({top:-ctop/sRate}, 200);
+                }, 100);
+        }).bind('dragsend',function(ev){
+            clearInterval(tmr);
+        })
+        .bind('drag',function(ev){
+            var offsetY = ev.offsetY - drag_posY;
+            var top = Math.max(btnYA[0], Math.min(btnYA[1], drag_top + offsetY));
+            this.style.top = top + 'px';
+            ctop = top;
+            //con.css({top: -top / sRate});
+        });
+
+    return;
+    sc.mousewheel(function(ev, delta){
+        var btnTop = parseInt(btn.css('top')) || 0;
+        if((btnTop==btnYA[0] && delta > 0) || (btnTop==btnYA[1] && delta < 0))return true;
+
+        btnTop = Math.max(btnYA[0], Math.min(btnYA[1], btnTop + delta * wheelPH));
+        btn[0].style.top = btnTop + 'px';
+        con0.scrollTop = btnTop / sRate;
+
+        return false;
+    });
+});
+}
+
+fix_scrollers();
+</script>
+</body>
+</html>
